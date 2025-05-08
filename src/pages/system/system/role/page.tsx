@@ -1,5 +1,3 @@
-
-
 // 导入必要的表格相关组件和类型
 import {
   ColumnDef,
@@ -35,8 +33,8 @@ import {
 } from "@/components/ui/table";
 import { Role } from "@/types/role";
 import { useQuery } from "@tanstack/react-query";
-import { AssignPermissionsDialog } from "./_components/assign-permissions-dialog";
-import { AssignMenusDialog } from "./_components/assign-menus-dialog";
+import { AssignPermissionsDialog } from "@/components/systemRole/assign-permissions-dialog";
+import { AssignMenusDialog } from "@/components/systemRole/assign-menus-dialog";
 
 // 表格列定义
 const columns: ColumnDef<Role>[] = [
@@ -107,7 +105,7 @@ const columns: ColumnDef<Role>[] = [
       );
     },
   },
-  
+
   // 操作列
   {
     id: "actions",

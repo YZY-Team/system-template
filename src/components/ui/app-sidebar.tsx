@@ -4,7 +4,7 @@ import { AudioWaveform, Command, GalleryVerticalEnd } from "lucide-react";
 import * as React from "react";
 
 import { GetUserPermissionlist, UserPermission } from "@/api/auth";
-import { NavMain } from "@/components/nav-main";
+import { NavMain } from "@/components/ui/nav-main";
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useQuery } from "@tanstack/react-query";
 import { TeamSwitcher } from "./team-switcher";
-import { LogoutButton } from "@/components/logout-button";
+import { LogoutButton } from "@/components/ui/logout-button";
 
 /**
  * 菜单项类型

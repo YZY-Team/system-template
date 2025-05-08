@@ -1,10 +1,8 @@
-
-
 import { menuApi } from "@/api/menu";
 import { MenuTree } from "@/types/menu";
 import { useQuery } from "@tanstack/react-query";
-import { MenuDragItem } from "./_components/menu-drag-item";
-import { AddMenuDialog } from "./_components/add-menu-dialog";
+import { MenuDragItem } from "@/components/systemMenu/menu-drag-item";
+import { AddMenuDialog } from "@/components/systemMenu/add-menu-dialog";
 import { useDrop } from "react-dnd";
 import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
@@ -25,7 +23,12 @@ export const SystemMenuComponents = () => {
     },
   });
 
-  const handleDrop = async (dragId: number, hoverId: number | null, asChild: boolean = false, isBefore: boolean = true) => {
+  const handleDrop = async (
+    dragId: number,
+    hoverId: number | null,
+    asChild: boolean = false,
+    isBefore: boolean = true
+  ) => {
     // 如果是拖到顶级
     if (hoverId === null) {
       await orderMutation.mutateAsync({
@@ -78,14 +81,14 @@ export const SystemMenuComponents = () => {
     accept: "MENU_ITEM",
     hover: (item: { id: number; level: number }, monitor) => {
       console.log(item);
-      
+
       const hoverBoundingRect = topLevelRef.current?.getBoundingClientRect();
       const clientOffset = monitor.getClientOffset();
 
       if (hoverBoundingRect && clientOffset) {
         const middleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
         const clientY = clientOffset.y - hoverBoundingRect.top;
-        
+
         setHoverMiddleY(middleY);
         setHoverClientY(clientY);
       }
@@ -107,7 +110,7 @@ export const SystemMenuComponents = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">菜单管理</h2>
-        <AddMenuDialog menuList={menuList} />        
+        <AddMenuDialog menuList={menuList} />
       </div>
 
       <div className="grid grid-cols-5 px-4 py-2 bg-muted/50 rounded-md mb-2">
@@ -139,4 +142,3 @@ export const SystemMenuComponents = () => {
     </div>
   );
 };
-

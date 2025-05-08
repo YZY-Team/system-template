@@ -1,4 +1,4 @@
-import { UserAuthForm } from "@/components/user-auth-form";
+import { UserAuthForm } from "@/components/ui/user-auth-form";
 
 /**
  * 元数据

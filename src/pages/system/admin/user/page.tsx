@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Mock from "mockjs";
 Mock.setup({
@@ -48,9 +48,6 @@ const AdminUserPage = () => {
           : undefined;
       },
     });
-
-  // 使用 useRef 获取容器引用
-  const containerRef = React.useRef<HTMLDivElement>(null);
 
   // 修改观察目标实现
   const [lastItems, setLastItems] = React.useState<any[]>([]);
